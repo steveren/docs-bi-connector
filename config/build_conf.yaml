@@ -6,6 +6,7 @@ project:
   name: 'bi-connector'
   tag: 'bi-connector'
   url: 'https://docs.mongodb.com'
+  url: 'https://docs.mongodb.com/bi-connector'
   title: "MongoDB Connector for BI"
   branched: true
 system:
