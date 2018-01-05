@@ -143,7 +143,7 @@ Release Notes for |bi|
 
 - Hides ``.pem`` key file passwords in logs.
 
-- :program:`mongodrdl` ignores binary fields when generating :doc:`DRDL
+- :binary:`~bin.mongodrdl` ignores binary fields when generating :doc:`DRDL
   </schema-configuration>` files.
 
 - Supports queries that ``SELECT`` variables prefixed with "``mongodb``".
@@ -202,7 +202,7 @@ relational business intelligence tools.
 *Released Jan 27, 2016*
 
 - Ignores collections prefixed with "system." when generating the
-  :ref:`DRDL <drdl>` file for a database with :program:`mongodrdl`.
+  :ref:`DRDL <drdl>` file for a database with :binary:`~bin.mongodrdl`.
 
 - Checks if file is writable before sampling when generating the
   :ref:`DRDL <drdl>` file with program:`mongodrdl`.

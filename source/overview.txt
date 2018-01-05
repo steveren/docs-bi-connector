@@ -1,0 +1,120 @@
+========
+Overview
+========
+
+.. default-domain:: mongodb
+
+.. contents:: On this page
+   :local:
+   :backlinks: none
+   :depth: 1
+   :class: singlecol
+
+Introduction
+------------
+
+MongoDB has a :manual:`flexible data model
+</core/data-modeling-introduction/>` which stores data in
+JSON-like documents. Document structure is not enforced by default,
+allowing more realistic data representations of objects and entities.
+However, most existing business intelligence (BI) tools expect data
+to have a fixed, tabular schema. |bi| allows users to leverage tools
+such as :doc:`MicroStrategy Desktop </connect/microstrategy>`,
+:doc:`Qlik Sense</connect/qlik>`, and
+:doc:`Power BI </connect/powerbi>` for data visualization,
+graphing, reporting, and other BI functions in conjunction with a
+MongoDB database.
+
+System Components
+-----------------
+
+A complete BI system includes the following components:
+
+- **MongoDB database:** Data storage.
+- **BI Connector:** Creates a schema, passes queries from your BI tool
+  to MongoDB, then returns the data from MongoDB to your BI tool.
+- **ODBC data source name (DSN):**
+  Holds authentication and connection configuration data.
+- **BI Tool:** Data visualization and analysis.
+
+.. figure:: /images/bi-connector/cloud-none-horiz.png
+   :alt: Local DB and BI Connector
+   :figwidth: 546px
+   :align: center
+
+Most BI tools can import data from a :doc:`DSN
+</tutorial/create-system-dsn>`. Setting up a DSN which
+points to your |bi-short| instance allows you to use a wide range of
+BI tools and SQL clients with a single data source configuration.
+
+Your BI tool and your DSN always run on your local desktop, but your
+database and your |bi-short| instance
+may be either local, on premises, or remote. The following sections
+describe possible configurations for a BI system.
+
+Hosted Database and |bi-short|
+------------------------------
+
+`MongoDB Atlas <https://www.mongodb.com/cloud/atlas>`_ provides a fully
+hosted solution for both MongoDB and |bi-short|. Atlas dedicated
+clusters (`size M10+
+<https://docs.atlas.mongodb.com/create-new-cluster/>`_)
+offer an `integrated BI Connector instance
+<https://docs.atlas.mongodb.com/bi-connection>`_ as an option.
+In this scenario, the database and |bi-short|
+applications both run on Atlas, and you set up your
+:doc:`DSN </tutorial/create-system-dsn>` with connection information
+provided by Atlas.
+
+.. figure:: /images/bi-connector/cloud-bi-horiz.png
+   :alt: Hosted DB and BI Connector
+   :figwidth: 612px
+   :align: center
+
+Hosted Database and On Premises |bi-short|
+------------------------------------------
+
+If you have an Atlas deployment smaller than M10 (including the Atlas
+`free tier <https://docs.atlas.mongodb.com/getting-started/>`_), or if
+your MongoDB instance is not hosted on Atlas, you can run |bi-short|
+locally and specify a remote database address with the
+:option:`--mongo-uri <mongosqld --mongo-uri>` option when you start
+the BI Connector's
+:doc:`mongosqld process </reference/mongosqld>`.
+
+.. figure:: /images/bi-connector/cloud-db-horiz.png
+   :alt: On Premises DB and Local BI Connector
+   :figwidth: 706px
+   :align: center
+
+On Premises Database and |bi-short|
+-----------------------------------
+
+Your organization may have installations of both MongoDB and |bi-short|
+elsewhere on your network, in which case you can set up your
+:doc:`DSN </tutorial/create-system-dsn>` to point to the |bi-short|
+server address.
+
+.. figure:: /images/bi-connector/onprem-db-bi-horiz.png
+   :alt: On Premises DB and BI Connector
+   :figwidth: 593px
+   :align: center
+
+
+Local Database and |bi-short|
+-----------------------------
+
+For testing and all-in-one-box local experimentation, you can run
+MongoDB and |bi-short| on your desktop. This is the simplest
+configuration, perfect for quickly looking over the possibilities
+for data visualization with |bi-short|.
+
+Learn more about setting up a local |bi-short| test installation
+in the :doc:`Quick Start Guide </local-quickstart>`.
+
+.. class:: hidden
+
+   .. toctree::
+      :titlesonly:
+
+      /local-quickstart
